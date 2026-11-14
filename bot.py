@@ -754,7 +754,7 @@ def menu_myid(call):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'volver')
 def volver(call):
-    # Volver al menú principal
+# Volver al menú principal
     user_name = call.from_user.first_name
     markup = types.InlineKeyboardMarkup(row_width=2)
     btn1 = types.InlineKeyboardButton('✷ Stripe (Real)', callback_data='menu_sp')
@@ -764,17 +764,18 @@ def volver(call):
     btn5 = types.InlineKeyboardButton('📚 Ayuda', callback_data='menu_help')
     btn6 = types.InlineKeyboardButton('👤 Mi ID', callback_data='menu_myid')
     markup.add(btn1, btn2, btn3, btn4, btn5, btn6)
-    
+
     bot.edit_message_text(
         chat_id=call.message.chat.id,
         message_id=call.message.message_id,
-        text=ftext=(
-    f"<tg-emoji emoji-id='6025939738781814561'>🛍</tg-emoji> <b><i>W E L C O M E</i></b> <tg-emoji emoji-id='6025939738781814561'>🛍</tg-emoji>\n"
-    f"<b><i>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</i></b>\n"
-    f"<tg-emoji emoji-id='6026316531967726726'>🎁</tg-emoji> <b><i>Name →</i></b> {escape_html(user_name)} <tg-emoji emoji-id='6026292029179301727'>👑</tg-emoji>\n"
-    f"⚡ <b>Status → <i>Online</i> &amp; <i>Ready</i></b> <tg-emoji emoji-id='6023903103944758376'>💝</tg-emoji>\n"
-    f"<b><i>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</i></b>\n\n"
-    f"<tg-emoji emoji-id='6025874094501662784'>☑</tg-emoji> <b><i>Use the menu below to get started</i></b>:",
+        text=(
+            f"<tg-emoji emoji-id='6025939738781814561'>🛍</tg-emoji> <b><i>W E L C O M E</i></b> <tg-emoji emoji-id='6025939738781814561'>🛍</tg-emoji>\n"
+            f"<b><i>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</i></b>\n"
+            f"<tg-emoji emoji-id='6026316531967726726'>🎁</tg-emoji> <b><i>Name →</i></b> {escape_html(user_name)} <tg-emoji emoji-id='6026292029179301727'>👑</tg-emoji>\n"
+            f"⚡ <b>Status → <i>Online</i> &amp; <i>Ready</i></b> <tg-emoji emoji-id='6023903103944758376'>💝</tg-emoji>\n"
+            f"<b><i>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</i></b>\n\n"
+            f"<tg-emoji emoji-id='6025874094501662784'>☑</tg-emoji> <b><i>Use the menu below to get started</i></b>:"
+        ),
         reply_markup=markup
     )
 
